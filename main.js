@@ -78,4 +78,45 @@ class Book extends Media(){
     };
 }
 
+class Movie extends Media(){
+    constructor(director,title, runTime, isCheckedOut, ratings){
+        super(title);
+        this._director = director;
+        this._runTime = runTime;
+        this._isCheckedOut = isCheckedOut;
+        this._ratings = ratings;
+    }
 
+    get director(){
+        return this._director;
+    };
+
+    get title(){
+        return this._title;
+    };
+
+    get runTime(){
+        return this._runTime;
+    }
+
+    get isCheckedOut(){
+        return this._isCheckedOut;
+    }
+
+    get ratings(){
+        return this._ratings;
+    }
+
+    getAverageRating(){
+        let ratingsSum = this._ratings.reduce((currentSum, rating) => currentSum + rating,0);
+        return ratingsSum / this._ratings.length;
+    };
+
+    toggleCheckOutStatus(){
+        this._isCheckedOut = !this._isCheckedOut;
+    };
+
+    addRating(value){
+        this._ratings.push(value);
+    };
+}
