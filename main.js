@@ -34,3 +34,48 @@ class Media{
         this._ratings.push(value);
     }
 }
+
+class Book extends Media(){
+    constructor(author,title, pages, isCheckedOut, ratings){
+        super(title);
+        this._author = author;
+        this._pages = pages;
+        this._isCheckedOut = isCheckedOut;
+        this._ratings = ratings;
+    }
+
+    get author(){
+        return this._author;
+    };
+
+    get title(){
+        return this._title;
+    };
+
+    get pages(){
+        return this._pages;
+    }
+
+    get isCheckedOut(){
+        return this._isCheckedOut;
+    }
+
+    get ratings(){
+        return this._ratings;
+    }
+
+    getAverageRating(){
+        let ratingsSum = this._ratings.reduce((currentSum, rating) => currentSum + rating,0);
+        return ratingsSum / this._ratings.length;
+    };
+
+    toggleCheckOutStatus(){
+        this._isCheckedOut = !this._isCheckedOut;
+    };
+
+    addRating(value){
+        this._ratings.push(value);
+    };
+}
+
+
